@@ -40,6 +40,11 @@ UPhysicsHandleComponent* UGrabber::GetPhysicsComponent() const
 }
 
 
+bool UGrabber::TraceForPhysicsBody_Implementation(AActor*& HitActor, UPrimitiveComponent*& HitComponent)
+{
+	return false;
+}
+
 // Called every frame
 void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {

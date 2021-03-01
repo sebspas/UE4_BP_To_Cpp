@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/SceneComponent.h"
+#include "Components/PrimitiveComponent.h"
 #include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "Grabber.generated.h"
 
@@ -30,6 +31,12 @@ protected:
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	UPhysicsHandleComponent* GetPhysicsComponent() const;
 
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+	void NotifyQuestActor(AActor* Actor);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	bool TraceForPhysicsBody(AActor*& HitActor, UPrimitiveComponent*& HitComponent);
+	
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
