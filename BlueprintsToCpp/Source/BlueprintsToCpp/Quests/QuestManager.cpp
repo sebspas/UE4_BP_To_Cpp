@@ -15,7 +15,7 @@ AQuestManager::AQuestManager()
 void AQuestManager::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	UE_LOG(LogTemp, Warning, TEXT("AQuestManager BeginPlay"));
 }
 
 // Called every frame
@@ -23,5 +23,6 @@ void AQuestManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	UE_LOG(LogTemp, Warning, TEXT("AQuestManager Tick"));
 }
 
