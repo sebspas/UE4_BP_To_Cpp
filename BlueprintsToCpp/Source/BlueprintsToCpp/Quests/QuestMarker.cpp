@@ -23,3 +23,14 @@ void AQuestMarker::RefreshVisibility()
 	bool Visibility = GetQuestManager()->IsActiveQuest(QuestName) && Quest.Progress == ShowAtProgress;
 	ParticleSystem->SetVisibility(Visibility);
 }
+
+void AQuestMarker::BeginPlay()
+{
+	GetQuestManager()->CompletedQuest.AddDynamic(this, &AQuestMarker::QuestUpdated);
+	RefreshVisibility();
+}
+
+void AQuestMarker::QuestUpdated(int32 Index)
+{
+	RefreshVisibility();
+}
